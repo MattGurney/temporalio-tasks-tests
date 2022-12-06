@@ -10,7 +10,7 @@ from temporalio.client import WorkflowFailureError
 @pytest.mark.asyncio
 async def test_asyncio(client):
     workflow_task_queue_name = str(uuid.uuid4())
-    activity_task_queue_name = str(uuid.uuid4())
+    activity_task_queue_name = "my-activity-task-queue"
 
     async def start_workflow_worker(client, workflow_task_queue_name):
         await ww.start_workflow_worker(client, workflow_task_queue_name)
@@ -37,7 +37,7 @@ async def test_asyncio(client):
             print(f"trigger_workflow failed: {workflow_task_queue_name}, e.cause: {e.cause}")
             raise e
         except Exception as e:
-            print(f"trigger_workflow exception: {e}, e.cause: {e.cause}")
+            print(f"trigger_workflow exception")
             raise e
 
     async def main():

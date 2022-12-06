@@ -3,8 +3,8 @@ import requests
 
 
 @activity.defn
-async def RestActivity():
+async def RestActivity(input):
     print("RestActivity starting")
     response = requests.get("https://www.google.com")
     print("RestActivity completed")
-    return response
+    return "success"

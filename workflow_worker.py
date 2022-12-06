@@ -19,6 +19,7 @@ class TestWorkflow:
             schedule_to_start_timeout=timedelta(seconds=10),
             schedule_to_close_timeout=timedelta(seconds=10),
             retry_policy=RetryPolicy(maximum_attempts=1),  # Don't retry tests
+            task_queue="my-activity-task-queue",
         )
 
 
